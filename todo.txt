@@ -2,11 +2,11 @@
 
 set up basic html files which include:
 -- page 1: home page --> index.html
--- page 2: watch list --> watch_list.html
--- page 3: sign in page --> sign_in.html
+-- page 2: watch list --> watchlist.html
+-- page 3: sign in page --> login.html
 -- page 4: profile page --> profile.html
 -- page 5: contact page --> contact.html
--- page 6: community page --> community.html
+
 
 ----sprint 2----
 
@@ -16,3 +16,5 @@ add bootstrap to each page.
 
 finish project as best as you con:
 add notes: 
+
+if there is time: add community page
