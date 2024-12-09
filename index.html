@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ani Track</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color:#f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar{
+            background-color: #343a40;
+        }
+
+        .navbar-brand,.nav-link{
+            color: #fff;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .hero {
+            background-image: url('https://via.placeholder.com/1500x600.png?text=Anime+Tracker');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+
+        .featured-anime{
+            background-color: #e9ecef;
+            padding: 60px 0;
+        }
+
+        .anime-card {
+            border: none;
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transfomr 0.3s ease-in-out;
+        }
+
+        .anime-card:hover{
+            transform: scale(1.05);
+        }
+
+        .anime-card img{
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: fff;
+            padding: 20px 0;
+        }
+
+        .footer a{
+            color: fff;
+
+        }
+
+        .footer a:hover{
+            color: #ffc107;
+        }
+
+        .search-bar input {
+            border-radius: 20px;
+            padding: 10px;
+            border: 2px solid #343a40;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-bar button{
+            border-radius: 20px;
+            background-color: #ffc107;
+            color: #343a40;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover{
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ani Track</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link"></a>About</li>
+                    <li class="nav-item"><a href="#anime-list" class="nav-link"></a>Anime List</li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link"></a>Contact</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Track Your Favorite Anime</h1>
+            <p class="lead">Discover, track, and follow your anime journey. Stay updated on the latest episodes, ratings, and more! </p>
+            <div class="search-bar">
+                <input type="text" class="form-control" placeholder="Search for an anime...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Anime Section -->
+    <section class="featured-anime" id="anime-list">
+        <div class="container">
+            <h2 class="text-center mb-5"> Featured Anime </h2>
+            <div class="row">
+                <!-- Anime Card -->
+                 <div class="col-md-4 mb-4">
+                    <div class="anime-card">
+                        <img src="https://via.placeholder.com/400x200.png?text=Anime+1" alt="Anime 1" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"> Anime Title 1 </h5>
+                            <p class="card-text"> A brief description of this anime. Follow the adventure of the characters as they face challenges and grow.</p>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- Anime Card -->
+                 <div class="col-md-4 mb-4">
+                    <div class="anime-card">
+                        <img src="https://via.placeholder.com/400x200.png?text=Anime+2" alt="Anime 2" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"> Anime Title 2 </h5>
+                            <p class="card-text"> A brief description of this anime. Follow the adventure of the characters as they face challenges and grow.</p>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- Anime Card -->
+                 <div class="col-md-4 mb-4">
+                    <div class="anime-card">
+                        <img src="https://via.placeholder.com/400x200.png?text=Anime+3" alt="Anime 3" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"> Anime Title 3 </h5>
+                            <p class="card-text"> A brief description of this anime. Follow the adventure of the characters as they face challenges and grow.</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Ani Track. All rights reserved.</p>
+            <div>
+                <a href="#" class="mr-3">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
