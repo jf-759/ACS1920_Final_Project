@@ -1,0 +1,41 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar{
+    background-color: #343a40;
+
+}
+
+.navbar-brand,
+.nav-link{
+    color: #fff;
+}
+
+.navbar-brand:hover,
+.nav-link:hover{
+    color: #ffc107;
+}
+
+.navbar-logo {
+    width: 50px;
+    height: auto;
+}
+
+.footer{
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+
+}
+
+
+.footer a{
+    color: #fff;
+
+}
+
+.footer a:hover{
+    color: #ffc107;
+}
