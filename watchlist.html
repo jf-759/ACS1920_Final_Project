@@ -34,7 +34,7 @@
         <h1 class="text-center mb-4">My Watchlist</h1>
 
         <div id="watchlist-container" class="row g-4">
-            <!-- Anime cards will be dynamically added here using JavaScript -->
+           
             <p id="empty-message" class="text-center">Your watchlist is currently empty. Start adding some anime!</p>
         </div>
     </main>
@@ -67,24 +67,34 @@
         //     }
         // ];
         document.addEventListener('DOMContentLoaded', function() {
-            const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
             const watchlistContainer = document.getElementById('watchlist-container');
-            const emptyMessage = document.getElementById('empty-message');
 
-            if (watchlist.length > 0) {
-                emptyMessage.style.display = 'none';
+            function loadWatchlist() {
+                const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+                
+                watchlistContainer.innerHTML = ''; // clears existing content
 
                 watchlist.forEach(anime => {
                     const card = document.createElement('div');
                     card.classList.add('col-md-4');
+                
+                    const animeImage = anime.image || '';
 
                     card.innerHTML = `
-                    <div class=' card h100'>
-                        <img src='${anime.image}' class='card-img-top' alt='${anime.title}'>
-                        <div class='card-body'>
-                            <h5 class='card-title'>${anime.title}</h5>
-                            <p class='card-text'>${anime.description}</p>
-                            <button class="btn btn-success mark-completed" data-title="${anime.title}">Completed</button>
+                    <div class="card h-100">
+                        <img src="${animeImage}" class="card-img-top" alt="${anime.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${anime.title}</h5>
+                            <p class="card-text">${anime.description || 'No description available.'}</p>
+                            ${
+                                anime.completed
+                                    ? '<span class="badge badge-success">Completed</span>'
+                                    : ''
+                            }
+                            <button class="btn btn-success mark-completed" data-title="${anime.title}">
+                                ${anime.completed ? 'Mark as Incomplete' : 'Mark as Completed'}
+                            </button>
+                            <button class="btn btn-danger remove-from-watchlist" data-title="${anime.title}">Remove</button>
                         </div>
                     </div>
                     `;
@@ -92,25 +102,48 @@
                     watchlistContainer.appendChild(card);
                 });
 
-                // added event listeners to 'completed' buttons
-                const completedButtons = document.querySelectorAll('.mark-completed');
-
-                completedButtons.forEach(button => {
+                document.querySelectorAll('.mark-completed').forEach(button => {
                     button.addEventListener('click', function() {
-                        const animeTitle = this.getAttribute('data-title');
-                        removeFromWatchlist(animeTitle);
+                        toggleCompleted(button.getAttribute('data-title'));
                     });
                 });
+                
+
+                document.querySelectorAll('.remove-from-watchlist').forEach(button => {
+                    button.addEventListener('click', function() {
+                        removeFromWatchlist(button.getAttribute('data-title'));
+                    });
+                });
+
+            }
+                
+            function toggleCompleted(animeTitle) {
+                const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
+                const anime = watchlist.find(a => a.title === animeTitle);
+                if (anime) {
+                    anime.completed = !anime.completed;
+                }
+
+                localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                
+                loadWatchlist();
             }
 
-            function removeFromWatchlist(animeTitle){
+            function removeFromWatchlist(animeTitle) {
                 let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+        
                 watchlist = watchlist.filter(anime => anime.title !== animeTitle);
+
                 localStorage.setItem('watchlist', JSON.stringify(watchlist));
-                location.reload();
+
+                loadWatchlist();
+        
             }
-        });
-    
+
+        loadWatchlist();
+        
+    });    
     </script>
 </body>
 </html>
